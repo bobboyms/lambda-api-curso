@@ -2,3 +2,5 @@
 npm install
 npm rebuild
 npm run compile
+sam build
+sam local start-api

@@ -1,2 +1,5 @@
 /.aws-sam/
 /app/node_modules/
+/node_modules/
+/samconfig.toml
+/dist/

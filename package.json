@@ -4,9 +4,8 @@
   "author": "SAM CLI",
   "license": "MIT",
   "scripts": {
-    "fast-compile": "tsc",
-    "compile": "eslint . --ext .ts && tsc",
-    "lint": "eslint . --ext .ts"
+    "compile": "tsc",
+    "lint": "eslint app --ext .ts"
   },
   "devDependencies": {
     "@types/node": "^14.14.13",
