@@ -3,8 +3,11 @@ import {FindCustomer} from "../ports/usecases/FindCustomer";
 import {FindPlan} from "../ports/usecases/FindPlan";
 import {Subscription} from "../domain/agregates/Subscription";
 import {SubscriptionEvents} from "../ports/events/SubscriptionEvents";
+import {DomainNotFoundException} from "../exceptions/DomainNotFoundException";
+import {SubscriptionManager} from "../ports/usecases/SubscriptionManager";
 
-export class SubscriptionService {
+export class SubscriptionService implements SubscriptionManager {
+
     private readonly subscriptionRepository:SubscriptionRepository
     private readonly subscriptionEvent:SubscriptionEvents
     private readonly findCustomer:FindCustomer
@@ -31,5 +34,23 @@ export class SubscriptionService {
         return Promise.resolve(subscription)
 
     }
+
+    public async unsubscribe(subscriptionId:string):Promise<void> {
+        const subscription = await this.subscriptionFindById(subscriptionId)
+        await this.subscriptionRepository
+            .update(subscription.unsubscribe())
+    }
+
+    public async subscriptionFindById(subscriptionId:string):Promise<Subscription> {
+
+        const subscription = (await this.subscriptionRepository
+            .findById(subscriptionId))
+            .orElseThrow(() => {
+                throw new DomainNotFoundException("Subscription not found")
+            })
+
+        return Promise.resolve(subscription)
+    }
+
 
 }

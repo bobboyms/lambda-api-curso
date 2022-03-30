@@ -14,7 +14,6 @@ export class ID {
         this.id = id
     }
 
-
     public get value():string {
         return this.id
     }
