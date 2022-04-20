@@ -1,4 +1,4 @@
-class Empty {}
+export class Empty {}
 
 export class Optional<T> {
 

@@ -8,9 +8,10 @@
     "lint": "eslint app --ext .ts"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.93",
+    "@types/mysql2": "github:types/mysql2",
     "@types/node": "^14.14.13",
     "@types/uuid": "^8.3.4",
-    "@types/aws-lambda": "^8.10.93",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
     "eslint": "^7.15.0",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1097.0",
+    "mysql2": "^2.3.3",
     "uuid": "^8.3.2"
   }
 }

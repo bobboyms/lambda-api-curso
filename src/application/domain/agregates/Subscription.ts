@@ -10,7 +10,7 @@ export class Subscription {
     public readonly dateTime:Date
     private _unsubscribe:boolean
 
-    private constructor(id:ID, customer:Customer, plan:Plan, dateTime:Date) {
+    constructor(id:ID, customer:Customer, plan:Plan, dateTime:Date) {
         this.id = id
         this.customer = customer
         this.plan = plan
